@@ -54,7 +54,8 @@ set expandtab
 set softtabstop=2
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+command White set list listchars=tab:»·,trail:·,nbsp:·
+command Whiten set nolist
 
 " Use one space, not two, after punctuation.
 set nojoinspaces

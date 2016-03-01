@@ -171,6 +171,7 @@ alias ssh_z="ssh rhadidi@zinnia.cc.gt.atl.ga.us"
 
 #Near Entrance
 alias ssh_fu="ssh rhadidi@furyx.cc.gt.atl.ga.us"
+alias ssh_la="ssh rhadidi@lamint.cc.gt.atl.ga.us"
 
 #ETC
 alias ssh_br="ssh rhadidi@branon.cc.gt.atl.ga.us"
@@ -194,6 +195,9 @@ alias ssh_pad="ssh rhadidi@parisdaisy.cc.gt.atl.ga.us"
 alias ssh_rm="ssh rhadidi@rosemallow.cc.gt.atl.ga.us"
 
 #######################################
+#Git Redhat display warning
+unset SSH_ASKPASS
+
 alias rmf="/bin/rm"
 alias rm="gvfs-trash"
 
