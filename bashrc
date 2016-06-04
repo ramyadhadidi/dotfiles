@@ -86,6 +86,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+#git auto-completion
+if [ -f /etc/bash_completion ]; then
+      . /etc/bash_completion
+fi
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -175,6 +180,7 @@ alias ssh_la="ssh rhadidi@lamint.cc.gt.atl.ga.us"
 
 #ETC
 alias ssh_br="ssh rhadidi@branon.cc.gt.atl.ga.us"
+alias ssh_ps="ssh rhadidi@purplesage.cc.gt.atl.ga.us"
 alias ssh_pm="ssh rhadidi@peppermint.cc.gt.atl.ga.us"
 alias ssh_wi="ssh rhadidi@walliris.cc.gt.atl.ga.us"
 alias ssh_yl="ssh rhadidi@yellowlotus.cc.gt.atl.ga.us"
@@ -218,6 +224,12 @@ export PATH_CUDA=/usr/local/cuda/bin
 export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
 export CUDA_INSTALL_PATH=/usr/local/cuda
 
+
+PATH_ANACONDA=""
+if [ -d /usr/bin/anaconda3/ ]; then
+    export PATH_ANACONDA=/usr/bin/anaconda3
+fi
+
 export MPIHOME=$HOME/local/packages/OpenMPI-1.8
 export MPICC=mpicc 
 export MPICXX=mpicxx
@@ -231,7 +243,7 @@ export BOOST_HOME=$HOME/local/packages/boost-1.56
 export SST_HOME=$HOME/local/sst
 export SST_BIN=$HOME/local/sst/bin
 
-export PATH=$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
+export PATH=$PATH_ANACONDA:$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
 export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$LD_LIBRARY_PATH
 export MANPATH=/home/ramyad/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
 #export C_INCLUDE_PATH=/home/ramyad/local/include
@@ -240,3 +252,7 @@ export MANPATH=/home/ramyad/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
 #export SIM_RESULT_DIR=/hparch_gluster/ramyad/res
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
 export SIM_RESULT_DIR=/home/rhadidi/res
+
+
+####################
+export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
