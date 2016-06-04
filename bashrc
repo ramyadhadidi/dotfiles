@@ -245,9 +245,9 @@ export SST_BIN=$HOME/local/sst/bin
 
 export PATH=$PATH_ANACONDA:$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
 export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$LD_LIBRARY_PATH
-export MANPATH=/home/ramyad/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
-#export C_INCLUDE_PATH=/home/ramyad/local/include
-#export CPLUS_INCLUDE_PATH=/home/ramyad/local/include
+export MANPATH=/home/rhadidi/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
+export C_INCLUDE_PATH=/home/rhadidi/local/include
+export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include
 
 #export SIM_RESULT_DIR=/hparch_gluster/ramyad/res
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
