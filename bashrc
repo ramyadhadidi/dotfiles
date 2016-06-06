@@ -254,6 +254,9 @@ export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
 export SIM_RESULT_DIR=/home/rhadidi/res
 
-
-####################
+#######Tricolor#######
 export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
+
+######Cubed########
+alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
+export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
