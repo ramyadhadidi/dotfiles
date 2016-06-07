@@ -258,5 +258,6 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
 
 ######Cubed########
+export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
 alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
 export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
