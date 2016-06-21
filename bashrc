@@ -204,26 +204,52 @@ alias ssh_rm="ssh rhadidi@rosemallow.cc.gt.atl.ga.us"
 #Git Redhat display warning
 unset SSH_ASKPASS
 
+#rm replacement
 alias rmf="/bin/rm"
 alias rm="gvfs-trash"
+alias trash="gvfs-trash"
 
 #PACE Cluster
 alias ssh_pace="ssh rhadidi6@ece.pace.gatech.edu"
 
+#cd shortcuts
 alias cdd="cd /RAMYAD"
 alias cdg="cd /hparch_gluster/ramyad"
-
-alias trash="gvfs-trash"
-
 export GLUSTER=/hparch_gluster/ramyad
 
 #export PATH_TOOLS_MACSIM=/home/rhadidi/sim/macsim_internal_ramyad/tools
 export PATH_TOOLS_MACSIM=/home/rhadidi/scratch/src/sst-git/sst/elements/macsimComponent/internal/tools
 
-export PATH_CUDA=/usr/local/cuda/bin
-export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
-export CUDA_INSTALL_PATH=/usr/local/cuda
 
+########## CUDA versions on Branon ###########
+if [ $HOSTNAME = "branon.cc.gt.atl.ga.us" ]
+then
+  #cuda 4.2
+  echo "Cuda 4.2"
+  export PATH_CUDA=/usr/local/cuda-4.2
+  export PATH_CUDA_LIB=/usr/local/cuda-4.2/lib64:/usr/local/cuda-4.2/lib
+  export CUDA_INSTALL_PATH=/usr/local/cuda-4.2
+  #cuda 5.5
+  #echo "Cuda 5.5"
+  #export PATH_CUDA=/usr/local/cuda-5.5
+  #export PATH_CUDA_LIB=/usr/local/cuda-5.5/lib64:/usr/local/cuda-5.5/lib
+  #export CUDA_INSTALL_PATH=/usr/local/cuda-5.5
+  #cuda 6.5
+  #echo "Cuda 6.5"
+  #export PATH_CUDA=/usr/local/cuda-6.5
+  #export PATH_CUDA_LIB=/usr/local/cuda-6.5/lib64:/usr/local/cuda-6.5/lib
+  #export CUDA_INSTALL_PATH=/usr/local/cuda-6.5
+
+  PATH_LLVM_BIN=/usr/local/src/llvm-3.4/build/Release+Asserts/bin
+  PATH_LLVM_LIB=/usr/local/src/llvm-3.4/build/Release+Asserts/lib
+else
+  echo "Default Cuda"
+  export PATH_CUDA=/usr/local/cuda/bin
+  export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
+  export CUDA_INSTALL_PATH=/usr/local/cuda
+fi
+
+##############################################
 
 PATH_ANACONDA=""
 if [ -d /usr/bin/anaconda3/ ]; then
@@ -243,17 +269,18 @@ export BOOST_HOME=$HOME/local/packages/boost-1.56
 export SST_HOME=$HOME/local/sst
 export SST_BIN=$HOME/local/sst/bin
 
-export PATH=$PATH_ANACONDA:$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
-export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$LD_LIBRARY_PATH:/usr/local/lib
-export LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$LD_LIBRARY_PATH:/usr/local/lib
+export PATH=$PATH_ANACONDA:$PATH_CUDA/bin:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
+export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$PATH_LLVM_LIB:/usr/local/lib
+export LIBRARY_PATH=$LD_LIBRARY_PATH
 export MANPATH=/home/rhadidi/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
-export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include
-export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include
+export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$PATH_CUDA/include
+export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$PATH_CUDA/include
 
 #export SIM_RESULT_DIR=/hparch_gluster/ramyad/res
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
 export SIM_RESULT_DIR=/home/rhadidi/res
 
+################## Vivado Versions ########################
 #######Tricolor#######
 export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
 
@@ -261,3 +288,6 @@ export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
 export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
 alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
 export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
+##########################################################
+
+
