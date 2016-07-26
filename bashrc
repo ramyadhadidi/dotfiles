@@ -289,5 +289,12 @@ export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
 alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
 export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
 ##########################################################
+###################### bash history multiple terminals####
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
 
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
