@@ -209,6 +209,8 @@ alias rmf="/bin/rm"
 alias rm="gvfs-trash"
 alias trash="gvfs-trash"
 
+export TRASH="/home/rhadidi/.local/share/Trash"
+
 #PACE Cluster
 alias ssh_pace="ssh rhadidi6@ece.pace.gatech.edu"
 
