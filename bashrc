@@ -5,16 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -85,6 +76,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# less colored
+alias less='less -r'
 
 #git auto-completion
 if [ -f /etc/bash_completion ]; then
@@ -293,6 +287,7 @@ export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
 ##########################################################
 ###################### bash history multiple terminals####
 # Avoid duplicates
+# don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL=ignoredups:erasedups  
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
@@ -300,3 +295,6 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=5000000
+HISTFILESIZE=1000000
