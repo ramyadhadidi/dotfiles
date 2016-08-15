@@ -171,6 +171,8 @@ alias ssh_z="ssh rhadidi@zinnia.cc.gt.atl.ga.us"
 #Near Entrance
 alias ssh_fu="ssh rhadidi@furyx.cc.gt.atl.ga.us"
 alias ssh_la="ssh rhadidi@lamint.cc.gt.atl.ga.us"
+alias ssh_da="ssh rhadidi@damint.cc.gt.atl.ga.us"
+alias ssh_sul="ssh rhadidi@sunnylotus.cc.gt.atl.ga.us"
 
 #ETC
 alias ssh_br="ssh rhadidi@branon.cc.gt.atl.ga.us"
@@ -186,7 +188,6 @@ alias ssh_prd="ssh rhadidi@parisdaisy.cc.gt.atl.ga.us"
 alias ssh_bld="ssh rahdidi@bluedaisy.cc.gt.atl.ga.us"
 alias ssh_stl="ssh rhadidi@starlotus.cc.gt.atl.ga.us"
 alias ssh_sl="ssh rhadidi@sacredlotus.cc.gt.atl.ga.us"
-alias ssh_sul="ssh rhadidi@sunnylotus.cc.gt.atl.ga.us"
 alias ssh_ck="ssh rhadidi@corokia.cc.gt.atl.ga.us"
 alias ssh_qat="ssh rhadidi@quartet.cc.gt.atl.ga.us"
 alias ssh_qit="ssh rhadidi@quintet.cc.gt.atl.ga.us"
@@ -257,8 +258,8 @@ export MPICC=mpicc
 export MPICXX=mpicxx
 
 #export DRAMSIM2_HOME=$HOME/local/packages/DRAMSim2
-export DRAMSIM2_HOME=/home/common/DRAMSim2
-#export DRAMSIM2_HOME=/home/rhadidi/scratch/src/DRAMSim2
+#export DRAMSIM2_HOME=/home/common/DRAMSim2
+export DRAMSIM2_HOME=/home/rhadidi/scratch/src/DRAMSim2
 
 export BOOST_HOME=$HOME/local/packages/boost-1.56 
 
