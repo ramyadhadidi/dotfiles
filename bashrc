@@ -280,10 +280,11 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 ################## Vivado Versions ########################
 #######Tricolor#######
 export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
+alias vivado="/export_home/Xilinx/Vivado/2016.1/bin/vivado"
 
 ######Cubed########
 export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
-alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
+#alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
 export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
 ##########################################################
 ###################### bash history multiple terminals####
@@ -294,7 +295,7 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000000
