@@ -194,6 +194,7 @@ alias ssh_qit="ssh rhadidi@quintet.cc.gt.atl.ga.us"
 alias ssh_spd="ssh rhadidi@spanishdaisy.cc.gt.atl.ga.us"
 alias ssh_pad="ssh rhadidi@parisdaisy.cc.gt.atl.ga.us"
 alias ssh_rm="ssh rhadidi@rosemallow.cc.gt.atl.ga.us"
+alias ssh_dl="ssh rhadidi@dalek.cc.gt.atl.ga.us"
 
 #######################################
 #Git Redhat display warning
@@ -249,21 +250,23 @@ fi
 ##############################################
 
 PATH_ANACONDA=""
-if [ -d /usr/bin/anaconda3/ ]; then
-    export PATH_ANACONDA=/usr/bin/anaconda3
-fi
+#if [ -d /usr/bin/anaconda3/ ]; then
+#    export PATH_ANACONDA=/usr/bin/anaconda3
+#fi
 
 export MPIHOME=$HOME/local/packages/OpenMPI-1.8
 export MPICC=mpicc 
 export MPICXX=mpicxx
 
 #export DRAMSIM2_HOME=$HOME/local/packages/DRAMSim2
-#export DRAMSIM2_HOME=/home/common/DRAMSim2
-export DRAMSIM2_HOME=/home/rhadidi/scratch/src/DRAMSim2
+export DRAMSIM2_HOME=/home/common/DRAMSim2
+#export DRAMSIM2_HOME=/home/rhadidi/scratch/src/DRAMSim2
 
 export BOOST_HOME=$HOME/local/packages/boost-1.56 
 
 export SST_HOME=$HOME/local/sst
+#export SST_HOME=$HOME/local/sst-test
+
 export SST_BIN=$HOME/local/sst/bin
 
 export PATH=$PATH_ANACONDA:$PATH_CUDA/bin:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
