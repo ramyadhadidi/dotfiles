@@ -154,3 +154,6 @@ set spell spelllang=en_us
 " remove highlighting in spell check
 hi clear SpellBad
 hi SpellBad cterm=underline
+
+" copy and paste disable indention
+set pastetoggle=<F3>

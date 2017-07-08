@@ -127,7 +127,7 @@ alias ssh_afd="ssh rhadidi@africandaisy.cc.gt.atl.ga.us"
 alias ssh_amd="ssh rhadidi@americandaisy.cc.gt.atl.ga.us" #NFS /trace
 alias ssh_bl="ssh rhadidi@blacklotus.cc.gt.atl.ga.us" #IDM replica
 alias ssh_fim="ssh rhadidi@fieldmint.cc.gt.atl.ga.us" #GlusterFS(/hparch_gluster)
-alias ssh_sd="ssh rhadidi@sunshinedaisy.cc.gt.atl.ga.us"
+alias ssh_ssd="ssh rhadidi@sunshinedaisy.cc.gt.atl.ga.us"
 alias ssh_si="ssh rhadidi@sweetiris.cc.gt.atl.ga.us"
 alias ssh_rl="ssh rhadidi@redlotus.cc.gt.atl.us"
 alias ssh_vl="ssh rhadidi@valleylily.cc.gt.atl.ga.us"
@@ -195,6 +195,7 @@ alias ssh_spd="ssh rhadidi@spanishdaisy.cc.gt.atl.ga.us"
 alias ssh_pad="ssh rhadidi@parisdaisy.cc.gt.atl.ga.us"
 alias ssh_rm="ssh rhadidi@rosemallow.cc.gt.atl.ga.us"
 alias ssh_dl="ssh rhadidi@dalek.cc.gt.atl.ga.us"
+alias ssh_sd="ssh rhadidi@sundrop.cc.gt.atl.ga.us"
 
 #######################################
 #Git Redhat display warning
@@ -226,25 +227,31 @@ then
   echo "Cuda 4.2"
   export PATH_CUDA=/usr/local/cuda-4.2
   export PATH_CUDA_LIB=/usr/local/cuda-4.2/lib64:/usr/local/cuda-4.2/lib
-  export CUDA_INSTALL_PATH=/usr/local/cuda-4.2
+  export CUDA_INCLUDE_PATH=/usr/local/cuda-4.2/include
   #cuda 5.5
   #echo "Cuda 5.5"
   #export PATH_CUDA=/usr/local/cuda-5.5
   #export PATH_CUDA_LIB=/usr/local/cuda-5.5/lib64:/usr/local/cuda-5.5/lib
-  #export CUDA_INSTALL_PATH=/usr/local/cuda-5.5
+  #export CUDA_INCLUDE_PATH=/usr/local/cuda-5.5/include
   #cuda 6.5
   #echo "Cuda 6.5"
   #export PATH_CUDA=/usr/local/cuda-6.5
   #export PATH_CUDA_LIB=/usr/local/cuda-6.5/lib64:/usr/local/cuda-6.5/lib
-  #export CUDA_INSTALL_PATH=/usr/local/cuda-6.5
+  #export CUDA_INCLUDE_PATH=/usr/local/cuda-6.5/include
 
   PATH_LLVM_BIN=/usr/local/src/llvm-3.4/build/Release+Asserts/bin
   PATH_LLVM_LIB=/usr/local/src/llvm-3.4/build/Release+Asserts/lib
+elif [ $HOSTNAME = "boson.cc.gt.atl.ga.us" ]
+then
+  echo "Cuda Boson"
+  export PATH_CUDA=/usr/bin
+  export PATH_CUDA_LIB=/usr/lib64:/usr/lib
+  export CUDA_INCLUDE_PATH=/usr/include/cuda
 else
   echo "Default Cuda"
   export PATH_CUDA=/usr/local/cuda/bin
   export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
-  export CUDA_INSTALL_PATH=/usr/local/cuda
+  export CUDA_INCLUDE_PATH=/usr/local/cuda/include
 fi
 
 ##############################################
@@ -273,8 +280,8 @@ export PATH=$PATH_ANACONDA:$PATH_CUDA/bin:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_H
 export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$PATH_LLVM_LIB:/usr/local/lib
 export LIBRARY_PATH=$LD_LIBRARY_PATH
 export MANPATH=/home/rhadidi/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
-export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$PATH_CUDA/include
-export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$PATH_CUDA/include
+export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH/include
+export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH/include
 
 #export SIM_RESULT_DIR=/hparch_gluster/ramyad/res
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
@@ -284,6 +291,7 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 #######Tricolor#######
 export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
 alias vivado="/export_home/Xilinx/Vivado/2016.1/bin/vivado"
+export LD_LIBRARY_PATH=/home/rhadidi/scratch/caffe/build/install/lib64:$LD_LIBRARY_PATH
 
 ######Cubed########
 export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
@@ -303,3 +311,4 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000000
 HISTFILESIZE=1000000
+
