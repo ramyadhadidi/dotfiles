@@ -253,6 +253,11 @@ else
   export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
   export CUDA_INCLUDE_PATH=/usr/local/cuda/include
 fi
+######################pyCaffe################
+if [ $HOSTNAME = "furyx.cc.gt.atl.ga.us" ]
+then
+  export PYTHONPATH=/home/rhadidi/scratch/caffe-ubuntu16.04/python
+fi
 
 ##############################################
 
@@ -276,12 +281,12 @@ export SST_HOME=$HOME/local/sst
 
 export SST_BIN=$HOME/local/sst/bin
 
-export PATH=$PATH_ANACONDA:$PATH_CUDA/bin:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
+export PATH=$PATH_ANACONDA:$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
 export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$PATH_LLVM_LIB:/usr/local/lib
 export LIBRARY_PATH=$LD_LIBRARY_PATH
 export MANPATH=/home/rhadidi/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
-export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH/include
-export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH/include
+export C_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/home/rhadidi/local/include:/usr/local/include:$CUDA_INCLUDE_PATH
 
 #export SIM_RESULT_DIR=/hparch_gluster/ramyad/res
 #export SIM_RESULT_DIR=/user/common/from_ramyad/res
