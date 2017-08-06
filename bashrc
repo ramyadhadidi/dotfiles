@@ -247,11 +247,19 @@ then
   export PATH_CUDA=/usr/bin
   export PATH_CUDA_LIB=/usr/lib64:/usr/lib
   export CUDA_INCLUDE_PATH=/usr/include/cuda
+elif [ $HOSTNAME = "furyx" ]
+then
+  echo "Cuda Furyx"
+  export PATH_CUDA=/usr/local/cuda/bin
+  export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
+  export CUDA_INCLUDE_PATH=/usr/local/cuda/include
+  export CUDA_ROOT=/usr/local/cuda
 else
   echo "Default Cuda"
   export PATH_CUDA=/usr/local/cuda/bin
   export PATH_CUDA_LIB=/usr/local/cuda/lib64:/usr/local/cuda/lib
   export CUDA_INCLUDE_PATH=/usr/local/cuda/include
+  export CUDA_ROOT=/usr/local/cuda
 fi
 ######################pyCaffe################
 if [ $HOSTNAME = "furyx.cc.gt.atl.ga.us" ]
