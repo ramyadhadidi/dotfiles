@@ -341,3 +341,6 @@ shopt -s histappend
 
 # (ONLINE) After each command, append to the history file and reread it
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# Ignore commands
+HISTIGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *'
