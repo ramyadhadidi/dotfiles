@@ -254,6 +254,13 @@ then
   export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
   export CUDA_INCLUDE_PATH=/usr/local/cuda/include
   export CUDA_ROOT=/usr/local/cuda
+elif [ $HOSTNAME = "jeep.cc.gt.atl.ga.us" ]
+then
+  echo "Cuda Jeep"
+  export PATH_CUDA=/usr/local/cuda/bin
+  export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
+  export CUDA_INCLUDE_PATH=/usr/local/cuda/include
+  export CUDA_ROOT=/usr/local/cuda
 else
   echo "Default Cuda"
   export PATH_CUDA=/usr/local/cuda/bin
@@ -302,14 +309,15 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 
 ################## Vivado Versions ########################
 #######Tricolor#######
-export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
-alias vivado="/export_home/Xilinx/Vivado/2016.1/bin/vivado"
-export LD_LIBRARY_PATH=/home/rhadidi/scratch/caffe/build/install/lib64:$LD_LIBRARY_PATH
+#export PATH=/export_home/Xilinx/Vivado/2016.1/bin:$PATH
+#alias vivado="/export_home/Xilinx/Vivado/2016.1/bin/vivado"
+#export LD_LIBRARY_PATH=/home/rhadidi/scratch/caffe/build/install/lib64:$LD_LIBRARY_PATH
 
 ######Cubed########
-export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
+#export PATH=/opt/hmc_board/picocomputing-5.4.2.0/bin:$PATH
 #alias vivado="/opt/Xilinx/16/Vivado/2016.1/bin/vivado"
-export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
+#export XILINXD_LICENSE_FILE=/opt/Xilinx/Xilinx.lic
+
 ##########################################################
 ###################### bash history multiple terminals####
 # Avoid duplicates
