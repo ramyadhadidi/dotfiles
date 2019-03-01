@@ -9,7 +9,7 @@
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+#shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -81,29 +81,29 @@ alias l='ls -CF'
 alias less='less -r'
 
 #git auto-completion
-if [ -f /etc/bash_completion ]; then
-      . /etc/bash_completion
-fi
+#if [ -f /etc/bash_completion ]; then
+#      . /etc/bash_completion
+#fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
 
 ########################################
 alias ..=".."
@@ -202,9 +202,6 @@ alias ssh_sd="ssh rhadidi@sundrop.cc.gt.atl.ga.us"
 unset SSH_ASKPASS
 
 #rm replacement
-alias rmf="/bin/rm"
-alias rm="gvfs-trash"
-alias trash="gvfs-trash"
 
 export TRASH="/home/rhadidi/.local/share/Trash"
 
@@ -221,7 +218,7 @@ export PATH_TOOLS_MACSIM=/home/rhadidi/scratch/src/sst-git/sst/elements/macsimCo
 
 
 ########## CUDA versions on Branon ###########
-if [ $HOSTNAME = "branon.cc.gt.atl.ga.us" ]
+if [[ $HOSTNAME == "branon.cc.gt.atl.ga.us" ]]
 then
   #cuda 4.2
   echo "Cuda 4.2"
@@ -241,26 +238,27 @@ then
 
   PATH_LLVM_BIN=/usr/local/src/llvm-3.4/build/Release+Asserts/bin
   PATH_LLVM_LIB=/usr/local/src/llvm-3.4/build/Release+Asserts/lib
-elif [ $HOSTNAME = "boson.cc.gt.atl.ga.us" ]
+elif [[ $HOSTNAME == "boson.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Boson"
   export PATH_CUDA=/usr/bin
   export PATH_CUDA_LIB=/usr/lib64:/usr/lib
   export CUDA_INCLUDE_PATH=/usr/include/cuda
-elif [ $HOSTNAME = "furyx" ]
+elif [[ $HOSTNAME == "furyx" ]]
 then
   echo "Cuda Furyx"
   export PATH_CUDA=/usr/local/cuda/bin
   export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
   export CUDA_INCLUDE_PATH=/usr/local/cuda/include
   export CUDA_ROOT=/usr/local/cuda
-elif [ $HOSTNAME = "jeep.cc.gt.atl.ga.us" ]
+elif [[ $HOSTNAME == "jeep.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Jeep"
-  export PATH_CUDA=/usr/local/cuda/bin
-  export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
-  export CUDA_INCLUDE_PATH=/usr/local/cuda/include
-  export CUDA_ROOT=/usr/local/cuda
+  export PATH_CUDA=/usr/local/cuda-8.0/bin
+  export PATH_CUDA_LIB=/usr/local/cuda-8.0/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
+  export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
+  export CUDA_ROOT=/usr/local/cuda-8.0
+  export CUDA_HOME=/usr/local/cuda-8.0
 else
   echo "Default Cuda"
   export PATH_CUDA=/usr/local/cuda/bin
@@ -269,7 +267,7 @@ else
   export CUDA_ROOT=/usr/local/cuda
 fi
 ######################pyCaffe################
-if [ $HOSTNAME = "furyx.cc.gt.atl.ga.us" ]
+if [[ $HOSTNAME == "furyx.cc.gt.atl.ga.us" ]]
 then
   export PYTHONPATH=/home/rhadidi/scratch/caffe-ubuntu16.04/python
 fi
@@ -324,10 +322,10 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 # don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL=ignoredups:erasedups  
 # When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
+#shopt -s histappend
 
 # After each command, append to the history file and reread it
-#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND="history -a; history -n;"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000000
@@ -336,11 +334,13 @@ HISTFILESIZE=1000000
 # History Append
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups  
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
 
 # (ONLINE) After each command, append to the history file and reread it
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # Ignore commands
 HISTIGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *'
+
+
+# conda
+#export PATH=/opt/anaconda3/bin:$PATH
