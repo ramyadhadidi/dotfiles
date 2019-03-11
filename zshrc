@@ -9,8 +9,10 @@ export ZSH="/home/rhadidi/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
+#ZSH_THEME="linuxonly"
+#ZSH_THEME="minimal"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -64,8 +66,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-plugins=() 
+plugins=(git 
+        zsh-autosuggestions 
+        zsh-syntax-highlighting
+        colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,25 +83,19 @@ source ~/.bashrc
 
 # If numeric filenames are matched by a filename generation pattern, sort the
 # # filenames numerically rather than lexicographically.
-#setopt NUMERIC_GLOB_SORT
+setopt NUMERIC_GLOB_SORT
 
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='vim'
+ fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

@@ -1,3 +1,7 @@
+# If not running interactively, don't do anything
+[[ $- == *i* ]] || return
+
+
 # .bashrc
 
 # Source global definitions
@@ -159,9 +163,11 @@ then
 elif [[ $HOSTNAME == "boson.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Boson"
-  export PATH_CUDA=/usr/bin
-  export PATH_CUDA_LIB=/usr/lib64:/usr/lib
-  export CUDA_INCLUDE_PATH=/usr/include/cuda
+  export PATH_CUDA=/usr/local/cuda-8.0/bin
+  export PATH_CUDA_LIB=/usr/local/cuda-8.0/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
+  export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
+  export CUDA_ROOT=/usr/local/cuda-8.0
+  export CUDA_HOME=/usr/local/cuda-8.0
 elif [[ $HOSTNAME == "furyx" ]]
 then
   echo "Cuda Furyx"
@@ -172,6 +178,14 @@ then
 elif [[ $HOSTNAME == "jeep.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Jeep"
+  export PATH_CUDA=/usr/local/cuda-8.0/bin
+  export PATH_CUDA_LIB=/usr/local/cuda-8.0/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
+  export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
+  export CUDA_ROOT=/usr/local/cuda-8.0
+  export CUDA_HOME=/usr/local/cuda-8.0
+elif [[ $HOSTNAME == "hummer.cc.gt.atl.ga.us" ]]
+then
+  echo "Cuda Hummer"
   export PATH_CUDA=/usr/local/cuda-8.0/bin
   export PATH_CUDA_LIB=/usr/local/cuda-8.0/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
   export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
@@ -223,13 +237,13 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 # Disable for zsh
 # Avoid duplicates
 # don't put duplicate lines or lines starting with space in the history.
-#export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups  
 # When the shell exits, append to the history file instead of overwriting it
 #shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-#HISTSIZE=5000000
-#HISTFILESIZE=1000000
+HISTSIZE=5000000
+HISTFILESIZE=1000000
 
 # History Append
 # Avoid duplicates
@@ -239,5 +253,5 @@ export SIM_RESULT_DIR=/home/rhadidi/res
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # Ignore commands
-#HISTIGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *'
+HISTIGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *:git status'
 
