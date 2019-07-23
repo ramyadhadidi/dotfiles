@@ -168,14 +168,14 @@ then
   export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
   export CUDA_ROOT=/usr/local/cuda-8.0
   export CUDA_HOME=/usr/local/cuda-8.0
-elif [[ $HOSTNAME == "furyx" ]]
+elif [[ $HOST == "furyx" ]]
 then
   echo "Cuda Furyx"
   export PATH_CUDA=/usr/local/cuda/bin
   export PATH_CUDA_LIB=/usr/local/cuda/lib64 #Should add this to /etc/ld.so.conf.d/cuda.conf for sudoers
   export CUDA_INCLUDE_PATH=/usr/local/cuda/include
   export CUDA_ROOT=/usr/local/cuda
-elif [[ $HOSTNAME == "jeep.cc.gt.atl.ga.us" ]]
+elif [[ $HOST == "jeep.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Jeep"
   export PATH_CUDA=/usr/local/cuda-8.0/bin
@@ -183,7 +183,7 @@ then
   export CUDA_INCLUDE_PATH=/usr/local/cuda-8.0/include
   export CUDA_ROOT=/usr/local/cuda-8.0
   export CUDA_HOME=/usr/local/cuda-8.0
-elif [[ $HOSTNAME == "hummer.cc.gt.atl.ga.us" ]]
+elif [[ $HOST == "hummer.cc.gt.atl.ga.us" ]]
 then
   echo "Cuda Hummer"
   export PATH_CUDA=/usr/local/cuda-8.0/bin
@@ -199,13 +199,7 @@ else
   export CUDA_ROOT=/usr/local/cuda
 fi
 
-################ MACSIM SST Stuff ##########################
-
-PATH_ANACONDA=""
-#if [ -d /usr/bin/anaconda3/ ]; then
-#    export PATH_ANACONDA=/usr/bin/anaconda3
-#fi
-
+################ Paths ##########################
 export MPIHOME=$HOME/local/packages/OpenMPI-1.8
 export MPICC=mpicc 
 export MPICXX=mpicxx
@@ -221,7 +215,7 @@ export SST_HOME=$HOME/local/sst
 
 export SST_BIN=$HOME/local/sst/bin
 
-export PATH=$PATH_ANACONDA:$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
+export PATH=$PATH_CUDA:$PATH_TOOLS_MACSIM:$MPIHOME/bin:$SST_HOME/bin:/home/rhadidi/local/bin:$PATH_LLVM_BIN:/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin:/sbin
 export LD_LIBRARY_PATH=/home/rhadidi/local/lib:$PATH_CUDA_LIB:$SST_HOME/lib/sst:$MPIHOME/lib:$BOOST_HOME/lib:$PATH_LLVM_LIB:/usr/local/lib
 export LIBRARY_PATH=$LD_LIBRARY_PATH
 export MANPATH=/home/rhadidi/local/man:$MPIHOME/share/man:$DYLD_LIBRARY_PATH
@@ -254,4 +248,20 @@ HISTFILESIZE=1000000
 
 # Ignore commands
 HISTIGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *:git status'
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/rhadidi/local/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/rhadidi/local/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/rhadidi/local/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/rhadidi/local/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

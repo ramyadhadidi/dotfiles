@@ -40,7 +40,7 @@ HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -67,7 +67,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git 
-        zsh-autosuggestions 
+        #zsh-autosuggestions 
         zsh-syntax-highlighting
         colored-man-pages)
 
@@ -104,3 +104,15 @@ else
 #
 # Example aliases
 alias ll='ls -alF'
+
+# History Setting
+# # http://zsh.sourceforge.net/Guide/zshguide02.html
+SAVEHIST=5000000
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTORY_IGNORE='rm *:/bin/rm *:cd:ls:cd -:rm -f:/bin/rm -f -r *:git pull:tmux:git push origin master:tmux at:tmux ls:cat *:git status'
